@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { ActionReducer, MetaReducer, StoreModule} from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { SharedNgrxModule } from 'libs/shared/ngrx/src';
 import { AppComponent } from './app.component';
 
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -31,7 +30,6 @@ export const metaReducers: MetaReducer<any>[] = [debug];
     }
   }),
   EffectsModule.forRoot(),
-  SharedNgrxModule,
    RouterModule.forRoot([{
      path: '',
      loadChildren: () => import('./remote-entry/entry.module').then(m => m.RemoteEntryModule)

@@ -7,8 +7,7 @@ import { RouterModule } from '@angular/router';
 import { loadRemoteModule } from '@nrwl/angular/mfe';
 import { StoreModule, ActionReducer, MetaReducer } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { SharedNgrxModule } from 'libs/shared/ngrx/src';
+import { SharedNgrxModule } from '@ng-mfe/shared/ngrx';
 
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
   return function(state, action) {

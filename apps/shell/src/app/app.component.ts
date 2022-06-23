@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { NgrxFacade } from 'libs/shared/ngrx/src';
+import { NgrxFacade } from '@ng-mfe/shared/ngrx';
 import { Observable } from 'rxjs';
 
 @Component({
