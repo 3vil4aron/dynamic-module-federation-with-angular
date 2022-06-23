@@ -10,6 +10,7 @@ export interface State extends EntityState<NgrxEntity> {
   selectedId?: string | number; // which Ngrx record has been selected
   loaded: boolean; // has the Ngrx list been loaded
   error?: string | null; // last known error (if any)
+  count: number;
 }
 
 export interface NgrxPartialState {
@@ -22,6 +23,7 @@ export const ngrxAdapter: EntityAdapter<NgrxEntity> =
 export const initialState: State = ngrxAdapter.getInitialState({
   // set initial required properties
   loaded: false,
+  count: 0
 });
 
 const ngrxReducer = createReducer(
@@ -30,7 +32,18 @@ const ngrxReducer = createReducer(
   on(NgrxActions.loadNgrxSuccess, (state, { ngrx }) =>
     ngrxAdapter.setAll(ngrx, { ...state, loaded: true })
   ),
-  on(NgrxActions.loadNgrxFailure, (state, { error }) => ({ ...state, error }))
+  on(NgrxActions.loadNgrxFailure, (state, { error }) => ({ ...state, error })),
+  on(NgrxActions.addCount, (state) => {
+    const s = {...state};
+    s.count = s.count+1;
+    return s;
+  }),
+  on(NgrxActions.subCount, (state) => {
+    const s = {...state};
+    s.count = s.count-1;
+    return s;
+  })
+
 );
 
 export function reducer(state: State | undefined, action: Action) {

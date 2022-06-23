@@ -29,6 +29,11 @@ export const getSelectedId = createSelector(
   (state: State) => state.selectedId
 );
 
+export const getCount = createSelector(
+  getNgrxState,
+  (state: State) => state.count
+);
+
 export const getSelected = createSelector(
   getNgrxEntities,
   getSelectedId,

@@ -14,6 +14,7 @@ export class NgrxFacade {
   loaded$ = this.store.pipe(select(NgrxSelectors.getNgrxLoaded));
   allNgrx$ = this.store.pipe(select(NgrxSelectors.getAllNgrx));
   selectedNgrx$ = this.store.pipe(select(NgrxSelectors.getSelected));
+  count$ = this.store.pipe(select(NgrxSelectors.getCount));
 
   constructor(private readonly store: Store) {}
 
@@ -23,5 +24,13 @@ export class NgrxFacade {
    */
   init() {
     this.store.dispatch(NgrxActions.init());
+  }
+
+  add() {
+    this.store.dispatch(NgrxActions.addCount());
+  }
+
+  sub() {
+    this.store.dispatch(NgrxActions.subCount());
   }
 }

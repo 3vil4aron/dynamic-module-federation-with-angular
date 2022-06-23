@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { NgrxFacade } from 'libs/shared/ngrx/src';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ng-mfe-root',
@@ -9,9 +10,15 @@ import { NgrxFacade } from 'libs/shared/ngrx/src';
 })
 export class AppComponent implements OnInit {
   title = 'shell';
-
-  constructor(private fa: NgrxFacade){}
+  count$: Observable<number>;
+  constructor(private fa: NgrxFacade){
+    this.count$ = fa.count$;
+  }
   ngOnInit(): void {
       this.fa.init();
+  }
+
+  add(): void {
+    this.fa.add();
   }
 }

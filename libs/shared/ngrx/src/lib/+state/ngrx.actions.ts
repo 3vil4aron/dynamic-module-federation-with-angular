@@ -12,3 +12,11 @@ export const loadNgrxFailure = createAction(
   '[Ngrx/API] Load Ngrx Failure',
   props<{ error: any }>()
 );
+
+export const addCount = createAction(
+  '[Ngrx/API] Add Count',
+);
+
+export const subCount = createAction(
+  '[Ngrx/API] Sub Count',
+);
