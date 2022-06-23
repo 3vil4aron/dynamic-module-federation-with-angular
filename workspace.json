@@ -8,7 +8,14 @@
     "employee-e2e": "apps/employee-e2e",
     "login": "apps/login",
     "login-e2e": "apps/login-e2e",
+    "remote1": "apps/remote1",
+    "remote1-e2e": "apps/remote1-e2e",
+    "remote2": "apps/remote2",
+    "remote2-e2e": "apps/remote2-e2e",
     "shared-data-access-user": "libs/shared/data-access-user",
+    "shared-ngrx": "libs/shared/ngrx",
+    "shell": "apps/shell",
+    "shell-e2e": "apps/shell-e2e",
     "todo": "apps/todo",
     "todo-e2e": "apps/todo-e2e"
   }
